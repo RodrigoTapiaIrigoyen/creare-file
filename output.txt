@@ -1,0 +1,28 @@
+node_modules/
+
+const fs = require('fs');
+const outputFile = 'output.txt';
+fs.writeFileSync(outputFile, ''); // Limpia el archivo de salida
+
+fs.readdirSync('.').forEach(file => {
+    if (fs.lstatSync(file).isFile() && file !== outputFile) {
+        fs.appendFileSync(outputFile, fs.readFileSync(file, 'utf8') + '\n');
+    }
+});
+
+console.log(`Contenido añadido `);
+const fs = require('fs');
+
+fs.writeFileSync('nuevo_archivo.txt', 'contenido del archivo', { encoding: 'utf8' });
+
+console.log('El archivo ha sido creado y el contenido ha sido escrito.');
+
+contenido del archivo
+const fs = require('fs');
+
+fs.readdirSync('.').forEach(file => {
+    if (fs.lstatSync(file).isFile()) {
+        console.log(`Contenido de ${file}:`);
+        console.log(fs.readFileSync(file, 'utf8'));
+    }
+});
